@@ -12,38 +12,44 @@ function Greeting() {
 function BookList() {
     return (
         <section className="booklist">
-            <Book />
-            <Book />
+            <Book
+                img={firstBook.img}
+                title={firstBook.title}
+                author={firstBook.author}
+            />
+            <Book
+                img={secondBook.img}
+                title={secondBook.title}
+                author={secondBook.author}
+            />
             <Book />
         </section>
     )
 }
 
-const Book = () => {
+const firstBook = {
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81P9B8sY4AL._AC_UL600_SR600,400_.jpg',
+    title: 'How to Catch a Turkey',
+    author: 'Adam Wallace',
+}
+const secondBook = {
+    img: 'https://images-na.ssl-images-amazon.com/images/I/41e+dwz5W5L._AC_UL600_SR600,400_.jpg',
+    title: 'Melania',
+    author: 'Melania Trump',
+}
+
+const Book = (props) => {
+    console.log(props)
+    const { img, title, author } = props
     return (
         <article className="book">
-            <Image />
-            <Title />
-            <Author />
+            <img src={img} alt={title} />
+            <h2>{title}</h2>
+            <h4>{author}</h4>
         </article>
     )
 }
-
-const Image = () => (
-    <img
-        src="https://images-na.ssl-images-amazon.com/images/I/81P9B8sY4AL._AC_UL600_SR600,400_.jpg"
-        alt="How to Catch a Turkey"
-    ></img>
-)
-const Title = () => <h2>How to Catch a Turkey</h2>
-const Author = () => {
-    const inlineHeadingStyles = {
-        color: '#617d98',
-        fontSize: '0.75rem',
-        marginTop: '0.5rem',
-    }
-    return <h4 style={inlineHeadingStyles}>Adam Wallace</h4>
-}
+// Or it can be :: const Book = { img, title, author } => {
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<BookList />)
