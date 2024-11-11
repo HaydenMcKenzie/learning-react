@@ -7,20 +7,32 @@ function Greeting() {
 }
 */
 
-// Div or Section or React.Fragment
-function Greeting() {
+function BookList() {
     return (
-        <div>
-            <Person />
-            <Message />
-        </div>
+        <section>
+            <Book />
+        </section>
     )
 }
 
-const Person = () => <h2>Joe Doe</h2>
-const Message = () => {
-    return <p>This is a paragraph about me</p>
+const Book = () => {
+    return (
+        <article>
+            <Image />
+            <Title />
+            <Author />
+        </article>
+    )
 }
 
+const Image = () => (
+    <img
+        src="https://images-na.ssl-images-amazon.com/images/I/81P9B8sY4AL._AC_UL600_SR600,400_.jpg"
+        alt="How to Catch a Turkey"
+    ></img>
+)
+const Title = () => <h2>How to Catch a Turkey</h2>
+const Author = () => <h4>Adam Wallace</h4>
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<Greeting />)
+root.render(<BookList />)
