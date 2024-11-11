@@ -12,31 +12,26 @@ function Greeting() {
 function BookList() {
     return (
         <section className="booklist">
-            <Book
-                img={firstBook.img}
-                title={firstBook.title}
-                author={firstBook.author}
-            />
-            <Book
-                img={secondBook.img}
-                title={secondBook.title}
-                author={secondBook.author}
-            />
-            <Book />
+            {books.map((book) => {
+                const { img, title, author } = book
+                return <Book img={img} title={title} author={author} />
+            })}
         </section>
     )
 }
 
-const firstBook = {
-    img: 'https://images-na.ssl-images-amazon.com/images/I/81P9B8sY4AL._AC_UL600_SR600,400_.jpg',
-    title: 'How to Catch a Turkey',
-    author: 'Adam Wallace',
-}
-const secondBook = {
-    img: 'https://images-na.ssl-images-amazon.com/images/I/41e+dwz5W5L._AC_UL600_SR600,400_.jpg',
-    title: 'Melania',
-    author: 'Melania Trump',
-}
+const books = [
+    {
+        img: 'https://images-na.ssl-images-amazon.com/images/I/81P9B8sY4AL._AC_UL600_SR600,400_.jpg',
+        title: 'How to Catch a Turkey',
+        author: 'Adam Wallace',
+    },
+    {
+        img: 'https://images-na.ssl-images-amazon.com/images/I/41e+dwz5W5L._AC_UL600_SR600,400_.jpg',
+        title: 'Melania',
+        author: 'Melania Trump',
+    },
+]
 
 const Book = (props) => {
     console.log(props)
@@ -50,6 +45,5 @@ const Book = (props) => {
     )
 }
 // Or it can be :: const Book = { img, title, author } => {
-
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<BookList />)
