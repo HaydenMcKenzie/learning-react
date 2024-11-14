@@ -14,8 +14,8 @@ function Greeting() {
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
-        return <Book {...book} key={book.id} />;
+      {books.map((book, index) => {
+        return <Book {...book} key={book.id} index={index} />;
       })}
     </section>
   );
