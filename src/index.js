@@ -49,7 +49,7 @@ const Book = (props) => {
     <article className="book">
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={getSingleBook}>Display</button>
+      <button onClick={() => getBook(id)}>Display</button>
       <h4>{author}</h4>
     </article>
   );
